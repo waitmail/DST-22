@@ -12,15 +12,15 @@ def game_core_v2(number):
         больше оно или меньше нужного. 
         Функция принимает загаданное число и возвращает число попыток'''    
     count = 0        
-    start = 1
-    finish = 100    
+    start = 1     #нижняя граница диапазона 
+    finish = 100  #верхняя граница диапазона  
     predict = np.random.randint(1,101) #          
     while number != predict:         
         count +=1        
         if number > predict:             
             start = predict + 1 # так как граница уже проверена увеличиваем ее          
         elif number < predict:                         
-            finish = predict - 1 # так как граница проверена уменьшаем ее
+            finish = predict - 1 # так как граница уже проверена уменьшаем ее
         predict = (start+finish)//2 #Для ускорения делим интервал пополам
         
     return(count) # выход из цикла, если угадали
